@@ -15,4 +15,9 @@ class Job < ApplicationRecord
   scope :published, -> { where(is_hidden: false) }
 
   has_many :resumes
+
+  def self.search(search)
+    where("title LIKE ? OR city LIKE ? ", "%#{search}%","%#{search}%")
+    #where("description LIKE ?", "%#{search}%")
+  end
 end

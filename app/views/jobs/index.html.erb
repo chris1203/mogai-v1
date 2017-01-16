@@ -1,42 +1,76 @@
-<div class="dropdown clearfix pull-right">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="true">
-    排序
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
-    <li><%= link_to("按照薪资下限排序", jobs_path(:order => "by_lower_bound")) %></li>
-    <li><%= link_to("按照薪资上限排序", jobs_path(:order => "by_upper_bound")) %></li>
-    <li><%= link_to("按照发表时间排序", jobs_path) %></li>
-  </ul>
+<div class="row">
+  <div class="col-lg-5">
+    <%= form_tag(jobs_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Jobs" %>
+    <%= submit_tag "Search" %>
+    <% end %>
+  </div>
+
+<div class="col-lg-7">
+  <div class="dropdown clearfix pull-right">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        排序
+          <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+          <li>
+            <%= link_to("按照薪资下限排序", jobs_path(:order => 'by_lower_bound')) %>
+          </li>
+          <li>
+            <%= link_to("按照薪资上限排序", jobs_path(:order => 'by_upper_bound')) %>
+          </li>
+          <li>
+            <%= link_to("按照发表时间排序", jobs_path ) %>
+
+          </li>
+      </ul>
+  </div>
+
 </div>
-<br />
-<br />
+
+</div>
+
+
 <table class="table table-boldered">
   <thead>
     <tr>
       <td>职缺</td>
-      <td>薪资下限</td>
+      <td>城市</td>
+      <td>详情</td>
+      <td>
+        薪资下限
+      </td>
       <td>薪资上限</td>
       <td>发布时间</td>
     </tr>
   </thead>
   <tbody>
-    <% @jobs.each do |job| %>
-    <tr>
-      <td>
-        <%= link_to(job.title, job_path(job)) %>
-      </td>
-      <td>
-        <%= job.wage_lower_bound %>
-      </td>
-      <td>
-        <%= job.wage_upper_bound %>
-      </td>
-      <td>
-        <%= job.created_at %>
-      </td>
-    </tr>
+    <% if @jobs.present? %>
+      <% @jobs.each do |job| %>
+      <tr>
+        <td>
+          <%= link_to(job.title, job_path(job)) %>
+        </td>
+        <td>
+          <%= job.city %>
+        </td>
+        <td>
+          <%= job.description %>
+        </td>
+        <td>
+          <%= job.wage_lower_bound %>
+        </td>
+        <td>
+          <%= job.wage_upper_bound %>
+        </td>
+        <td>
+          <%= job.created_at %>
+        </td>
+      </tr>
+      <% end %>
+    <% else %>
+      <p>There are no jobs containing the term(s)"<%= params[:search] %>" .</p>
     <% end %>
   </tbody>
+
 </table>
