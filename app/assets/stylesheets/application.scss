@@ -19,67 +19,11 @@
 @import "bootstrap";
 @import "font-awesome";
 
-
-.row {
-  clear: both;
-  max-width: 1040px;
-  margin: 0 auto;
+@import url('https://fonts.googleapis.com/css?family=Chewy');
+body{
+  background-color: #333
 }
 
-.face {
-  width: 100%;
-  position: relative;
-}
-.face .face-img {
-  display: block;
-  margin: 0px;
-}
-.face .coder h1,
-.face .designer h1 {
-  font-size: 48px;
-  line-height: 1.4em;
-}
-.face .coder p,
-.face .designer p {
-  font-size: 18px;
-  line-height: 1.4em;
-}
-.face .coder,
-.face .designer {
-  opacity: 1;
-  position: absolute;
-    width: 40%;
-    display: block;
-    z-index: 10;
-    height: 100%;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: top;
-    background: transparent;
-    font-family: "proxima nova light", "Helvetica Neue", Helvetica, Arial, Sans-serif;
-    text-rendering: optimizeLegibility;
-}
-.face .designer {
-  left: 0;
-}
-.face .coder {
-  right: 0;
-  text-align: right;
-}
-.face .coder .description,
-.face .designer .description {
-  position: absolute;
-  top: 160px;
-  width: 270px;
-}
-.face .designer .description {
-  left: 0px;
-}
-.face .coder .description {
-  right: 0px;
+label{
+  color: #eee;
 }
