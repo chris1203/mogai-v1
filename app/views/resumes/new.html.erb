@@ -1,7 +1,7 @@
-<h3> 投交履历到 <%= @job.title %> </h3>
+<h1> Post Your Resume </h1>
 <hr />
 <%= simple_form_for [@job, @resume] do |f| %>
   <%= f.input :content %>
   <%= f.input :attachment %>
-  <%= f.submit "送出" %>
+  <%= f.submit "Submit" %>
 <% end %>

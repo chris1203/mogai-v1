@@ -4,15 +4,15 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.all
     if params[:search]
-      @jobs = Job.published.search(params[:search]).recent
+      @jobs = Job.published.search(params[:search]).recent.paginate(:page => params[:page], :per_page => 7)
     elsif
       @jobs = case params[:order]
       when 'by_lower_bound'
-       @jobs = Job.published.order('wage_lower_bound DESC')
+       @jobs = Job.published.order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 7)
       when 'by_upper_bound'
-       @jobs = Job.published.order('wage_upper_bound DESC')
+       @jobs = Job.published.order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 7)
       else
-        @jobs = Job.published.recent
+        @jobs = Job.published.recent.paginate(:page => params[:page], :per_page => 7)
       end
     end
   end

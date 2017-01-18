@@ -9,7 +9,7 @@
 
         </div>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" style="color:black;">
         <div class="trix-content">
             <p> <%= simple_format(resume.content) %> </p>
         </div>
@@ -20,7 +20,7 @@
           <i class="fa fa-paperclip"> </i>
           <%= link_to("Download Resume", resume.attachment_url) %>
         <% else %>
-           No Attachment
+           No Attachments
         <% end %>
     </div>
 

@@ -24,13 +24,26 @@
           <% @jobs.each do |job| %>
           <li>
             <h4><span class="name"><%= link_to(job.title, job_path(job)) %></span> </h4>
-            <p class="description"><%= job.city %><%= job.wage_lower_bound %><%= job.wage_upper_bound %><%= job.created_at %></p>
+            <div class="row">
+              <div class="col-sm-2">
+                <p class="description"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= job.city %>
+              </div>
+              <div class="col-sm-3">
+                <p class="description"><i class="fa fa-jpy" aria-hidden="true"></i> <%= job.wage_lower_bound%> - <%= job.wage_upper_bound%>
+              </div>
+              <div class="col-sm-3 col-sm-offset-4">
+                <p class="description"><i class="fa fa-calendar" aria-hidden="true"></i> <%= local_date(job.created_at,'%B %e, %Y') %>
+              </div>
+            </div>
           </li>
           <% end %>
+
         <% else %>
           <p>There are no jobs containing the term(s)"<%= params[:search] %>" .</p>
         <% end %>
+
       </ul>
     </div>
+    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
   </div>
 </div>

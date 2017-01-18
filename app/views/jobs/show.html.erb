@@ -1,12 +1,28 @@
-<div  style="color:#aaa; text-align:center; width: 800px;">
-  <h1> <%= @job.title %> </h1>
+<div  class="row" style="color:#aaa; text-align:left; width: 800px;">
+  <div class="col-sm-11 col-sm-offset-4">
+    <ul>
+      <li><h1> <%= @job.title %> </h1></li>
 
-  <h3><%= @job.description %></h3>
-  <p><%= @job.wage_lower_bound %></p>
-  <p><%= @job.wage_upper_bound %></p>
-  <p><%= @job.city %></p>
-</div>
-
-<div class="col-md-offset-4 col-md-2 col-md-offset-5">
-  <%= link_to("Apply Now", new_job_resume_path(@job), :class => "btn btn-primary", :style => "font-size:30px; text-decoration:none;") %>
+      <li>
+        <div class="row">
+          <div class="col-sm-2  col-sm-offset-4">
+            <p class="description"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @job.city %>
+          </div>
+          <div class="col-sm-3">
+            <p class="description"><i class="fa fa-jpy" aria-hidden="true"></i> <%= @job.wage_lower_bound%> - <%= @job.wage_upper_bound%>
+          </div>
+      </li>
+      <li>
+        <p class="description">
+          <%= @job.description %>
+        </p>
+      </li>
+  </ul>
+  <div class="col-sm-3 col-sm-offset-5">
+    <p class="description" >  <i class="fa fa-calendar" aria-hidden="true"></i> <%= local_date(@job.created_at,'%B %e, %Y') %>
+  </div>
+  <div class="col-sm-8 col-sm-offset-3">
+    <%= link_to("Apply", new_job_resume_path(@job), :class => "btn btn-primary", :style => "width:150px;font-size:20px; text-decoration:none;margin-left:20px;") %>
+    <%= link_to("Back", jobs_path(@jobs), :class => "btn btn-default", :style => "width:150px;font-size:20px;color:rgb(51,122,183); text-decoration:none;") %>
+  </div>
 </div>

@@ -35,6 +35,8 @@ gem 'simple_form'
 gem 'awesome_rails_console'
 gem "font-awesome-rails"
 gem 'carrierwave'
+gem 'local_time'
+gem 'will_paginate-bootstrap'
 
 
 

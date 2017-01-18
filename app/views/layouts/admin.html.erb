@@ -15,9 +15,23 @@
             <%= render "common/flashes" %>
             <div class="row">
               <div class="col-md-2">
-                <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-                  <li class="active"><%= link_to("Jobs", admin_jobs_path ) %> </li>
-                </ul>
+                <div class='sidebar' style="background-color:rgba(200,200,200,0.1);margin-top:-20px;margin-bottom:20px;">
+                    <h1 style="padding-top:20px;">Sidebar</h1>
+                  <ul class='nav' style="padding-left:20px;">
+                    <li>
+                      <%= link_to("Admin All Jobs", admin_jobs_path ) %>
+                    </li>
+                    <li>
+                      <%= link_to("Add a job", new_admin_job_path ) %>
+                    </li>
+                    <li>
+                        <%= link_to("Jobs List", jobs_path ) %>
+                    </li>
+                    <li>
+                      <%= link_to("Home", root_path ) %>
+                    </li>
+                  </ul>
+                </div>
               </div>
 
               <div class="col-md-10">
