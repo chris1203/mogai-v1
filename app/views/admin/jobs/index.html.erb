@@ -1,44 +1,49 @@
-
-<table class="table table-boldered" style="color: #eee;">
-  <thead>
-    <tr>
-      <td style="width:250px;">Jobs</td>
-      <td >Resumes</td>
-      <td>Compensation</td>
-      <td>Settings </td>
-      <td>Post Time</td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @jobs.each do |job| %>
-    <tr>
-      <td style="width:250px;">
-        <%= render_job_status(job) %>
-        <%= link_to(job.title, admin_job_path(job)) %>
-      </td>
-      <td><%= link_to(job.resumes.count, admin_job_resumes_path(job)) %></td>
-      <td><i class="fa fa-jpy" aria-hidden="true"><%= job.wage_lower_bound %> - <i class="fa fa-jpy" aria-hidden="true"><%= job.wage_upper_bound %></td>
-      <td>
-        <%= link_to edit_admin_job_path(job), :class => "btn btn-primary btn-circle" do %>
-         <i class="fa fa-pencil" aria-hidden="true"></i>
+<div class="row">
+  <div >
+    <table class="table table-boldered" style="color: #eee;">
+      <thead>
+        <tr>
+          <td style="width:250px;">Job</td>
+          <td >Resume Count</td>
+          <td>Salary</td>
+          <td>Settings </td>
+          <td>Post Time</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @jobs.each do |job| %>
+        <tr>
+          <td style="width:250px;">
+            <%= render_job_status(job) %>
+            <%= link_to(job.title, admin_job_path(job)) %>
+          </td>
+          <td><%= link_to(job.resumes.count, admin_job_resumes_path(job)) %></td>
+          <td><i class="fa fa-jpy" aria-hidden="true"><%= job.wage_lower_bound %> - <i class="fa fa-jpy" aria-hidden="true"><%= job.wage_upper_bound %></td>
+          <td>
+            <%= link_to edit_admin_job_path(job) do %>
+             <i class="fa fa-pencil" aria-hidden="true"></i>
+            <% end %>
+            <%= link_to admin_job_path(job), method: :delete,
+            data:{confirm: "Delete this job?"} do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            <% end %>
+            <% if job.is_hidden %>
+              <%= link_to publish_admin_job_path(job), method: :post do %>
+               <i class="fa fa-eye" aria-hidden="true"></i>
+              <% end %>
+            <% else %>
+              <%= link_to hide_admin_job_path(job), method: :post do %>
+               <i class="fa fa-eye-slash" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+          </td>
+          <td><%= local_date(job.created_at,'%B %e, %Y') %></td>
+        </tr>
         <% end %>
-        <%= link_to admin_job_path(job), method: :delete,
-        data:{confirm: "Delete this job?"}, :class => "btn btn-danger btn-circle" do %>
-          <i class="fa fa-trash" aria-hidden="true"></i>
-        <% end %>
-        <% if job.is_hidden %>
-          <%= link_to publish_admin_job_path(job), method: :post, :class => "btn btn-success btn-circle" do %>
-           <i class="fa fa-eye" aria-hidden="true"></i>
-          <% end %>
-        <% else %>
-          <%= link_to hide_admin_job_path(job), method: :post, :class => "btn btn-success btn-circle" do %>
-           <i class="fa fa-eye-slash" aria-hidden="true"></i>
-          <% end %>
-        <% end %>
-      </td>
-      <td><%= local_date(job.created_at,'%B %e, %Y') %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-sm-4 col-sm-offset-8" style="text-align:right">
+    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>

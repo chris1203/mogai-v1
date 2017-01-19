@@ -1,49 +1,57 @@
 <div id="main">
     <h1>Jobs List</h1>
-  <div class="container" style="width:800px;">
-    <div id="jobs-list">
-      <%= form_tag(jobs_path, :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "title/city/details" %>
-      <%= submit_tag "Search" %>
-      <% end %>
-      <br/>
-      <br/>
-      <ul class="filter">
-        <li class="btn">
-          <%= link_to("Order by lowest wage bound", jobs_path(:order => 'by_lower_bound')) %>
-        </li>
-        <li class="btn">
-          <%= link_to("Order by highest wage bound", jobs_path(:order => 'by_upper_bound')) %>
-        </li>
-        <li class="btn">
-          <%= link_to("Show by post time", jobs_path ) %>
-        </li>
-      </ul>
-      <ul class="list">
-        <% if @jobs.present? %>
-          <% @jobs.each do |job| %>
-          <li>
-            <h4><span class="name"><%= link_to(job.title, job_path(job)) %></span> </h4>
-            <div class="row">
-              <div class="col-sm-2">
-                <p class="description"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= job.city %>
-              </div>
-              <div class="col-sm-3">
-                <p class="description"><i class="fa fa-jpy" aria-hidden="true"></i> <%= job.wage_lower_bound%> - <%= job.wage_upper_bound%>
-              </div>
-              <div class="col-sm-3 col-sm-offset-4">
-                <p class="description"><i class="fa fa-calendar" aria-hidden="true"></i> <%= local_date(job.created_at,'%B %e, %Y') %>
-              </div>
-            </div>
-          </li>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div id="jobs-list">
+          <%= form_tag(jobs_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "title/city/details" %>
+          <%= submit_tag "Search" %>
           <% end %>
+          <br/>
+          <br/>
+          <ul class="filter">
+            <li class="btn">
+              <%= link_to("Order by lower salary bound", jobs_path(:order => 'by_lower_bound')) %>
+            </li>
+            <li class="btn">
+              <%= link_to("Order by higher salary bound", jobs_path(:order => 'by_upper_bound')) %>
+            </li>
+            <li class="btn">
+              <%= link_to("Show by post time", jobs_path ) %>
+            </li>
+          </ul>
+          <ul class="list">
+            <% if @jobs.present? %>
+              <% @jobs.each do |job| %>
+              <li>
+                <h4><span class="name"><%= link_to(job.title, job_path(job)) %></span> </h4>
+                <div class="row">
+                  <div class="col-sm-2">
+                    <p class="description"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= job.city %>
+                  </div>
+                  <div class="col-sm-3">
+                    <p class="description"><i class="fa fa-jpy" aria-hidden="true"></i> <%= job.wage_lower_bound%> - <%= job.wage_upper_bound%>
+                  </div>
+                  <div class="col-sm-3 col-sm-offset-4">
+                    <p class="description"><i class="fa fa-calendar" aria-hidden="true"></i> <%= local_date(job.created_at,'%B %e, %Y') %>
+                  </div>
+                </div>
+              </li>
+              <% end %>
 
-        <% else %>
-          <p>There are no jobs containing the term(s)"<%= params[:search] %>" .</p>
-        <% end %>
+            <% else %>
+              <p>There are no jobs containing the term(s)"<%= params[:search] %>" .</p>
+            <% end %>
 
-      </ul>
+          </ul>
+
+        </div>
+
+      </div>
+      <div class="col-sm-5 col-sm-offset-5" style="text-align:right">
+        <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+      </div>
     </div>
-    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
   </div>
 </div>
