@@ -65,20 +65,25 @@ form#new_resume.simple_form.new_resume {
   margin-left: 350px;
 }
 .navbar-default {
-    background-color: rgb(0,0,0);//背景颜色
-    border-color: rgb(0,0,0);//边框色
-    margin-bottom: 0;//底部 margin 不撑开距离
+    background-color: rgb(0,0,0);
+    border-color: rgb(0,0,0);
+    margin-bottom: 0;
 }
 .navbar-default .navbar-brand {
-   color:rgb(255,255,255);//字体颜色
-   padding: 10px 15px;//上下10px,左右15px
-   line-height: 30px;//文字行高
+   color:rgb(255,255,255);
+   padding: 10px 15px;
+   line-height: 30px;
+}
+.navbar-default .navbar-nav{
+  width:200px;
+  margin-top: -10px;
+  font-size: 16px;
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: rgb(255,255,255);//鼠标放置在链接上的文字颜色
-  background-color: transparent;//鼠标放置在链接上的背景颜色，这里设为透明
+  color: rgb(255,255,255);
+  background-color: transparent;
 }
 
 .navbar-default .navbar-nav > li > a{

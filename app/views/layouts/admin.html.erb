@@ -19,16 +19,24 @@
                     <h1 style="padding-top:20px;">Sidebar</h1>
                   <ul class='nav' style="padding-left:20px;">
                     <li>
-                      <%= link_to("Admin All Jobs", admin_jobs_path ) %>
+                      <%= link_to admin_jobs_path do %>
+                        <i class="fa fa-wrench" aria-hidden="true"></i> Admin All Jobs
+                      <% end %>
                     </li>
                     <li>
-                      <%= link_to("Add a job", new_admin_job_path ) %>
+                      <%= link_to new_admin_job_path do %>
+                        <i class="fa fa-plus" aria-hidden="true"></i> Add A Job
+                      <% end %>
                     </li>
                     <li>
-                        <%= link_to("Jobs List", jobs_path ) %>
+                        <%= link_to jobs_path  do %>
+                          <i class="fa fa-th-list" aria-hidden="true"></i> Jobs List
+                        <% end %>
                     </li>
                     <li>
-                      <%= link_to("Home", root_path ) %>
+                      <%= link_to root_path do %>
+                        <i class="fa fa-home" aria-hidden="true"></i> Home
+                      <% end %>
                     </li>
                   </ul>
                 </div>

@@ -4,18 +4,12 @@
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
         <div id="jobs-list">
-          <%= form_tag(jobs_path, :method => "get", id: "search-form") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "title/city/details" %>
-          <%= submit_tag "Search" %>
-          <% end %>
-          <br/>
-          <br/>
           <ul class="filter">
             <li class="btn">
               <%= link_to("Order by lower salary bound", jobs_path(:order => 'by_lower_bound')) %>
             </li>
             <li class="btn">
-              <%= link_to("Order by higher salary bound", jobs_path(:order => 'by_upper_bound')) %>
+              <%= link_to("Order by upper salary bound", jobs_path(:order => 'by_upper_bound')) %>
             </li>
             <li class="btn">
               <%= link_to("Show by post time", jobs_path ) %>
@@ -25,16 +19,38 @@
             <% if @jobs.present? %>
               <% @jobs.each do |job| %>
               <li>
-                <h4><span class="name"><%= link_to(job.title, job_path(job)) %></span> </h4>
+                <div class="row">
+                  <div class="col-sm-5">
+                    <h4>
+                      <span class="name"><%= job.title %></span>
+                      <%= link_to job_path(job) do%>
+                      <i class="fa fa-chevron-right" aria-hidden="true" style="color:rgb(62,146,190);"></i>
+                      <% end %>
+                    </h4>
+                  </div>
+
+                </div>
                 <div class="row">
                   <div class="col-sm-2">
-                    <p class="description"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= job.city %>
+                    <p class="description"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= job.city %></p>
                   </div>
                   <div class="col-sm-3">
-                    <p class="description"><i class="fa fa-jpy" aria-hidden="true"></i> <%= job.wage_lower_bound%> - <%= job.wage_upper_bound%>
+                    <p class="description"><i class="fa fa-jpy" aria-hidden="true"></i> <%= job.wage_lower_bound%> - <%= job.wage_upper_bound%></p>
                   </div>
-                  <div class="col-sm-3 col-sm-offset-4">
-                    <p class="description"><i class="fa fa-calendar" aria-hidden="true"></i> <%= local_date(job.created_at,'%B %e, %Y') %>
+                  <div class="col-sm-2">
+                    <p class="description"><i class="fa fa-briefcase" aria-hidden="true"></i> <%= job.job_type %></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-2">
+                    <p class="description"><i class="fa fa-fire" aria-hidden="true"></i> <%= job.resumes.count%> applicants</p>
+                  </div>
+
+                  <div class="col-sm-3">
+                    <p class="description"><i class="fa fa-clock-o" aria-hidden="true"></i> <%= local_time_ago(job.created_at) %></p>
+                  </div>
+                  <div class="col-sm-4">
+                    <p class="description"><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= job.contact_email %></p>
                   </div>
                 </div>
               </li>

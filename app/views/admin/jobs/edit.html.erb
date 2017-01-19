@@ -2,11 +2,12 @@
 
 <%= simple_form_for [:admin, @job ] do |f| %>
 
-<%= f.input :title %>
-<%= f.input :city%>
+<%= f.input :title, :placeholder => "e.g. Rails Dev, Fullstacker" %>
+<%= f.input :job_type, :label => "Type", :placeholder => "Full Time/Remote/Intership/Cofounder"%>
+<%= f.input :city,:label => "Location"%>
 <%= f.input :description %>
-<%= f.input :wage_lower_bound %>
-<%= f.input :wage_upper_bound %>
+<%= f.input :wage_lower_bound, :label => "Lower Salary Bound" %>
+<%= f.input :wage_upper_bound, :label => "Upper Salary Bound" %>
 <%= f.input :contact_email %>
 <%= f.input :is_hidden %>
 

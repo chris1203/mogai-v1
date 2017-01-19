@@ -15,7 +15,10 @@
         <tr>
           <td style="width:250px;">
             <%= render_job_status(job) %>
-            <%= link_to(job.title, admin_job_path(job)) %>
+            <%= job.title %>
+            <%= link_to admin_job_path(job) do%>
+            <i class="fa fa-chevron-right" aria-hidden="true" style="color:rgb(62,146,190);"></i>
+            <% end %>
           </td>
           <td><%= link_to(job.resumes.count, admin_job_resumes_path(job)) %></td>
           <td><i class="fa fa-jpy" aria-hidden="true"><%= job.wage_lower_bound %> - <i class="fa fa-jpy" aria-hidden="true"><%= job.wage_upper_bound %></td>
@@ -29,11 +32,11 @@
             <% end %>
             <% if job.is_hidden %>
               <%= link_to publish_admin_job_path(job), method: :post do %>
-               <i class="fa fa-eye" aria-hidden="true"></i>
+               <i class="fa fa-unlock" aria-hidden="true"></i>
               <% end %>
             <% else %>
               <%= link_to hide_admin_job_path(job), method: :post do %>
-               <i class="fa fa-eye-slash" aria-hidden="true"></i>
+               <i class="fa fa-lock" aria-hidden="true"></i>
               <% end %>
             <% end %>
           </td>

@@ -3,7 +3,7 @@ module JobsHelper
     if job.is_hidden
       content_tag(:span, "", :class => "fa fa-lock")
     else
-      content_tag(:span, "", :class => "fa fa-globe")
+      content_tag(:span, "", :class => "fa fa-unlock")
     end
   end
 end
