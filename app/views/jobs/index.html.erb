@@ -1,9 +1,9 @@
-<div id="main">
-    <h1>Jobs List</h1>
-  <div class="container">
-    <div class="row">
+<div style="margin-top:20px">
+  <h1>Jobs List</h1>
+</div>
+
+    <div id="jobs-list" class="row" >
       <div class="col-sm-8 col-sm-offset-2">
-        <div id="jobs-list">
           <ul class="filter">
             <li class="btn">
               <%= link_to("Order by lower salary bound", jobs_path(:order => 'by_lower_bound')) %>
@@ -21,53 +21,43 @@
               <li>
                 <div class="row">
                   <div class="col-sm-5">
-                    <h4>
-                      <span class="name"><%= job.title %></span>
+                    <h4><%= job.title %>
                       <%= link_to job_path(job) do%>
                       <i class="fa fa-chevron-right" aria-hidden="true" style="color:rgb(62,146,190);"></i>
                       <% end %>
                     </h4>
                   </div>
-
                 </div>
                 <div class="row">
-                  <div class="col-sm-2">
-                    <p class="description"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= job.city %></p>
+                  <div class="col-sm-3">
+                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= job.city %></p>
                   </div>
                   <div class="col-sm-3">
-                    <p class="description"><i class="fa fa-jpy" aria-hidden="true"></i> <%= job.wage_lower_bound%> - <%= job.wage_upper_bound%></p>
-                  </div>
-                  <div class="col-sm-2">
-                    <p class="description"><i class="fa fa-briefcase" aria-hidden="true"></i> <%= job.job_type %></p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-2">
-                    <p class="description"><i class="fa fa-fire" aria-hidden="true"></i> <%= job.resumes.count%> applicants</p>
-                  </div>
-
-                  <div class="col-sm-3">
-                    <p class="description"><i class="fa fa-clock-o" aria-hidden="true"></i> <%= local_time_ago(job.created_at) %></p>
+                    <p><i class="fa fa-jpy" aria-hidden="true"></i> <%= job.wage_lower_bound%> - <%= job.wage_upper_bound%></p>
                   </div>
                   <div class="col-sm-4">
-                    <p class="description"><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= job.contact_email %></p>
+                    <p><i class="fa fa-briefcase" aria-hidden="true"></i> <%= job.job_type %></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p ><i class="fa fa-fire" aria-hidden="true"></i> <%= job.resumes.count%> applicants</p>
+                  </div>
+                  <div class="col-sm-3">
+                    <p ><i class="fa fa-clock-o" aria-hidden="true"></i> <%=local_relative_time(job.created_at,type:'weekday-or-date')%></p>
+                  </div>
+                  <div class="col-sm-4">
+                    <p ><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= job.contact_email %></p>
                   </div>
                 </div>
               </li>
               <% end %>
-
             <% else %>
               <p>There are no jobs containing the term(s)"<%= params[:search] %>" .</p>
             <% end %>
-
           </ul>
-
-        </div>
-
       </div>
       <div class="col-sm-5 col-sm-offset-5" style="text-align:right">
         <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
       </div>
     </div>
-  </div>
-</div>

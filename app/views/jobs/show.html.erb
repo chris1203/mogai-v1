@@ -1,38 +1,38 @@
-<div  class="row" style="color:#aaa;">
+<div  id="job-show" class="row" >
   <div class="col-lg-6 col-lg-offset-3">
     <h1> <%= @job.title %> </h1>
     <hr />
     <div class="row">
       <div class="col-sm-9">
-          <p class="description" style="text-align:left;">
+          <p style="text-align:left;">
             <%= @job.description %>
           </p>
       </div>
       <div class="col-sm-3">
         <ul>
           <li>
-            <p class="description"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @job.city %></p>
+            <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @job.city %></p>
           </li>
           <li>
-            <p class="description"><i class="fa fa-jpy" aria-hidden="true"></i> <%= @job.wage_lower_bound%> - <%= @job.wage_upper_bound%></p>
+            <p><i class="fa fa-jpy" aria-hidden="true"></i> <%= @job.wage_lower_bound%> - <%= @job.wage_upper_bound%></p>
           </li>
           <li>
-            <p class="description"><i class="fa fa-briefcase" aria-hidden="true"></i> <%= @job.job_type %></p>
+            <p><i class="fa fa-briefcase" aria-hidden="true"></i> <%= @job.job_type %></p>
           </li>
           <li>
-            <p class="description"><i class="fa fa-fire" aria-hidden="true"></i> <%= @job.resumes.count%> applicants</p>
+            <p><i class="fa fa-fire" aria-hidden="true"></i> <%= @job.resumes.count%> applicants</p>
           </li>
           <li>
-            <p class="description"><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= @job.contact_email %></p>
+            <p><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= @job.contact_email %></p>
           </li>
           <li>
-            <p class="description"><i class="fa fa-clock-o" aria-hidden="true"></i> <%= local_time_ago(@job.created_at) %></p>
+            <p><i class="fa fa-clock-o" aria-hidden="true"></i> <%= local_relative_time(@job.created_at,type:'weekday-or-date') %></p>
           </li>
         </ul>
       </div>
   </div>
-  <div class="col-sm-8 col-sm-offset-3" style="margin-top:30px;">
-    <%= link_to("Apply", new_job_resume_path(@job), :class => "btn btn-primary", :style => "width:150px;font-size:20px; text-decoration:none;") %>
-    <%= link_to("Back", jobs_path(@jobs), :class => "btn btn-default", :style => "width:150px;font-size:20px;color:rgb(51,122,183); text-decoration:none;") %>
+  <div class="col-sm-8 col-sm-offset-3" style="margin-top:25px;">
+    <%= link_to("Apply", new_job_resume_path(@job), :class => "btn btn-primary") %>
+    <%= link_to("Back", jobs_path(@jobs), :class => "btn btn-default") %>
   </div>
 </div>

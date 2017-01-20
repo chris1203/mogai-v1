@@ -1,60 +1,69 @@
-
-<div class="">
-    <div class="row">
-      <div class="col-12">
-         <img src="http://www.adhamdannaway.com/wp-content/themes/ad/images/adham-dannaway-designer-coder.jpg" alt="adham dannaway ui designer" style="width:100%;">
-              <div  class="col-lg-3 col-lg-offset-1" style="z-index: 10; margin-top:-400px;text-align:left;">
-                <ul>
-                  <li><h1 style="font-family: 'Roboto Condensed', sans-serif;font-size:70px;color:rgb(0,0,0);margin-left:-45px;"><b>designer</b></li>
-                </ul>
-              </div>
-              <div  class="col-lg-3 col-lg-offset-8" style="z-index: 10; margin-top:-400px;text-align:right;">
-                <ul>
-                  <li>
-                    <h1 style="font-family: 'Roboto Condensed', sans-serif;font-size:70px;color:rgb(0,0,0);margin-right:-25px;"><b>&lt;coder&gt;</b></h1>
-                  </li>
-                </ul>
-              </div>
-        </div>
+<div class="row">
+  <div class="col-12">
+    <img id="face-image" src="http://www.adhamdannaway.com/wp-content/themes/ad/images/adham-dannaway-designer-coder.jpg" alt="adham dannaway ui designer" />
+      <div id="designer" class="col-lg-3 col-lg-offset-1" >
+        <ul>
+          <li><h1 style=""><b>designer</b></li>
+        </ul>
       </div>
-    </div>
+      <div id="coder" class="col-lg-3 col-lg-offset-8" >
+        <ul>
+          <li><h1 ><b>&lt;coder&gt;</b></h1></li>
+        </ul>
+      </div>
+  </div>
+</div>
 
 <div class="row">
-  <p class="title">
-        Are you the one we are waiting for?
+   <p class="title">
+    Are you the one we are waiting for?
    </p>
    <div class="col-sm-3 col-sm-offset-1 ">
-     <div style="width: 70px;height: 15px;margin-right: auto;margin-bottom: 25px;margin-left: auto;border-bottom: 3px solid #0cafeb;}"></div>
-     <div style="color: #a6a6a6;font-family: 'Lato', sans-serif;margin-right: auto;margin-left: auto;font-size: 14px;line-height: 26px;">
+     <div  class="blue-border"></div>
+     <div class="title-description1">
        Coders with sufficient skills and knowledge to write clean, elegant and efficient code.
      </div>
    </div>
    <div class="col-sm-3" style="margin-left:50px;">
-     <div style="width: 70px;height: 15px;margin-right: auto;margin-bottom: 25px;margin-left: auto;border-bottom: 3px solid #0cafeb;}"></div>
-     <div style="color: #a6a6a6;font-family: 'Lato', sans-serif;margin-right: auto;margin-left: auto;font-size: 14px;line-height: 26px;">
+     <div class="blue-border"></div>
+     <div class="title-description1">
        UI/UX Designers with a passion for designing beautiful and functional user experiences.
      </div>
    </div>
    <div class="col-sm-3 " style="margin-left:50px;">
-     <div style="width: 70px;height: 15px;margin-right: auto;margin-bottom: 25px;margin-left: auto;border-bottom: 3px solid #0cafeb;}"></div>
-     <div style="color: #a6a6a6;font-family: 'Lato', sans-serif;margin-right: auto;margin-left: auto;font-size: 14px;line-height: 26px;">
+     <div class="blue-border"></div>
+     <div class="title-description1" >
        Passionate people who have awesome ideas to realize and want a creative, fun and rewarding job .
      </div>
    </div>
 </div>
-<div class="row" >
-      <div style=" color: rgb(255,255,255);font-family: 'Lato', sans-serif;font-size: 26px;text-align: center;">Why us?</div>
-      <div style="width: 70px;height: 15px;margin-right: auto;margin-bottom: 25px;margin-left: auto;border-bottom: 3px solid #0cafeb;}"></div>
-      <div style="color: #a6a6a6;font-family: 'Lato', sans-serif;width: 400px;margin-right: auto;margin-left: auto;font-size: 14px;line-height: 26px;">
+<div class="row"  >
+      <p class="title">Why us?</p>
+      <div class="blue-border"></div>
+      <div class="title-description2">
         <ul>
-          <li><span style="color:#0cafeb">Apply privately</span><br /> Only companies you apply to will see you're looking for a job. Your current boss won't know.</li>
-          <li><span style="color:#0cafeb">See salary up-front</span> <br />  See salary and equity before you apply. </li>
-          <li><span style="color:#0cafeb">No Middlemen</span><br />  Speak directly to the startup's founders. No recruiters allowed.</li>
-          <li><span style="color:#0cafeb">Partner startups around the world</span><br />  Thousands of the world's best startups are hiring on Startstar.</li>
+          <li>
+            <span class="des2-title">Apply privately</span>
+            <br /> Only companies you apply to will see you're looking for a job. Your current boss won't know.
+          </li>
+          <li>
+            <span class="des2-title">See salary up-front</span>
+            <br />  See salary and equity before you apply.
+          </li>
+          <li>
+            <span class="des2-title">No Middlemen</span>
+            <br />  Speak directly to the startup's founders. No recruiters allowed.
+          </li>
+          <li>
+            <span class="des2-title">Partner startups around the world</span>
+            <br />  Thousands of the world's best startups are hiring on Startstar.
+          </li>
         </ul>
       </div>
 </div>
-
-<div>
-  <img src="https://ww3.sinaimg.cn/large/006tNc79gy1fbtxxtz0lej31kw0o1dkj.jpg" style="width:100%"/>
+<div id="get-started" class="col-sm-2 col-sm-offset-5">
+    <%= link_to("Get Started", jobs_path(@jobs), :class => "btn btn-default") %>
+</div>
+<div class="row">
+  <img id="map"src="https://ww3.sinaimg.cn/large/006tNc79gy1fbtxxtz0lej31kw0o1dkj.jpg" />
 </div>

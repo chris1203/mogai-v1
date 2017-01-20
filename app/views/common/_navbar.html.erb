@@ -1,18 +1,18 @@
-<nav class="navbar navbar-default" role="navigation" style="background-color:rgb(0,0,0);margin-right: 0px; margin-left: 0px; margin-bottom: 0px;">
-    <div class="container-fluid">
+<nav class="navbar navbar-default" role="navigation" >
+
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header" style="margin-left:20px;">
+        <div class="navbar-header">
             <a class="navbar-brand" href="/"><i class="fa fa-star-half-o" aria-hidden="true"></i> StartStar -  Professional Designer and Coder Job Hunting Agency</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-            <div style="margin-top:10px;">
+
               <%= form_tag(jobs_path, :method => "get", id: "search-form") do %>
               <%= text_field_tag :search, params[:search], placeholder: "job title/location" %>
               <%= submit_tag "Search" %>
               <% end %>
-            </div>
+
 
               <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -45,6 +45,6 @@
             </ul>
         </div>
         <!-- /.navbar-collapse -->
-    </div>
+    
     <!-- /.container-fluid -->
 </nav>

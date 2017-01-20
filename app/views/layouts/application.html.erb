@@ -10,15 +10,20 @@
 
   <body>
     <div id="wrap">
-      <div id="main" class="container-fluid">
-        <div class="row">
-          <%= render "common/navbar" %>
+        <div id="main" class="container-fluid">
+          <div class="row">
+            <%= render "common/navbar" %>
+          </div>
+          <div class="row">
+            <%= render "common/flashes" %>
+          </div>
+          <div class="row">
+            <%= yield %>
+          </div>
         </div>
-        <%= render "common/flashes" %>
-        <%= yield %>
-      </div>
-   </div>
+    </div>
 
-    <%= render "common/footer" %>
+        <%= render "common/footer" %>
+
   </body>
 </html>

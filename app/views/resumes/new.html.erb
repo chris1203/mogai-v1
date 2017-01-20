@@ -1,7 +1,9 @@
-<h1> Post Your Resume </h1>
-<hr />
-<%= simple_form_for [@job, @resume] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :attachment %>
-  <%= f.submit "Submit" %>
-<% end %>
+<div id="resume-new">
+  <h1> Post Your Resume </h1>
+  <hr />
+  <%= simple_form_for [@job, @resume] do |f| %>
+    <%= f.input :content %>
+    <%= f.input :attachment %>
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>

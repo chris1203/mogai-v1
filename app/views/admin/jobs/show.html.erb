@@ -1,4 +1,4 @@
-<div  class="row" style="color:#aaa;">
+<div  class="row" style="color:#aaa;margin-top:25px;">
   <div class="col-lg-8 col-lg-offset-2">
     <h1> <%= @job.title %> </h1>
     <hr />
@@ -26,7 +26,7 @@
             <p class="description"><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= @job.contact_email %></p>
           </li>
           <li>
-            <p class="description"><i class="fa fa-clock-o" aria-hidden="true"></i> <%= local_time_ago(@job.created_at) %></p>
+            <p class="description"><i class="fa fa-clock-o" aria-hidden="true"></i> <%= local_relative_time(@job.created_at,type:'weekday-or-date') %></p>
           </li>
         </ul>
       </div>

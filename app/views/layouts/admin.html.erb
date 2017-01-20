@@ -9,44 +9,49 @@
     </head>
 
     <body>
-
-        <div class="container-fluid">
+      <div id="wrap">
+        <div id="main" class="container-fluid">
+          <div class="row">
             <%= render "common/navbar" %>
+          </div>
+          <div class="row" >
             <%= render "common/flashes" %>
-            <div class="row">
-              <div class="col-md-2">
-                <div class='sidebar' style="background-color:rgba(200,200,200,0.1);margin-top:-20px;margin-bottom:20px;">
-                    <h1 style="padding-top:20px;">Sidebar</h1>
-                  <ul class='nav' style="padding-left:20px;">
-                    <li>
-                      <%= link_to admin_jobs_path do %>
-                        <i class="fa fa-wrench" aria-hidden="true"></i> Admin All Jobs
-                      <% end %>
-                    </li>
-                    <li>
-                      <%= link_to new_admin_job_path do %>
-                        <i class="fa fa-plus" aria-hidden="true"></i> Add A Job
-                      <% end %>
-                    </li>
-                    <li>
-                        <%= link_to jobs_path  do %>
-                          <i class="fa fa-th-list" aria-hidden="true"></i> Jobs List
-                        <% end %>
-                    </li>
-                    <li>
-                      <%= link_to root_path do %>
-                        <i class="fa fa-home" aria-hidden="true"></i> Home
-                      <% end %>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="col-md-10">
-                <%= yield %>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <div class='sidebar'>
+                <h1>Sidebar</h1>
+                <ul class='nav' style="padding-left:20px;">
+                  <li>
+                    <%= link_to admin_jobs_path do %>
+                      <i class="fa fa-wrench" aria-hidden="true"></i> Admin All Jobs
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to new_admin_job_path do %>
+                      <i class="fa fa-plus" aria-hidden="true"></i> Add A Job
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to jobs_path  do %>
+                      <i class="fa fa-th-list" aria-hidden="true"></i> Jobs List
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to root_path do %>
+                      <i class="fa fa-home" aria-hidden="true"></i> Home
+                    <% end %>
+                  </li>
+                </ul>
               </div>
             </div>
+            <div class="col-md-10">
+              <%= yield %>
+            </div>
+          </div>
+
         </div>
+     </div>
 
         <%= render "common/footer" %>
 
